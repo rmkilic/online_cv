@@ -26,12 +26,15 @@ class _SkillsInfoState extends ConsumerState<_SkillsInfo> {
               ),
              
         Expanded(
-          child: ListView.builder(
+          child: Column(
+            children: List.generate(widget.skills.length, (index) => skillView(widget.skills[index])),
+          )
+          /* child: ListView.builder(
             itemCount: widget.skills.length,
             padding: const EdgeInsets.only(left: 8),                
             itemBuilder: (context, index) => skillView(widget.skills[index]),
                    
-          ),
+          ), */
         ),
       ],
     );

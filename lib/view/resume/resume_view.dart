@@ -26,7 +26,7 @@ class _ResumeViewState extends ConsumerState<ResumeView> {
     return Padding(
       padding: ConsPadding.pagePadding(context),
       child: SizedBox(
-        height:   context.width < ConsApplication.DESKTOPWIDTH ? context.height*1.5: context.height*.9,
+        height:   context.width < ConsApplication.DESKTOPWIDTH ? 1900: 1000,
         width: context.width,
         child: _body,
       ),
@@ -64,11 +64,13 @@ class _ResumeViewState extends ConsumerState<ResumeView> {
   }
   _mobile(Resume resume)
   {
-    return ListView(
+    return Column(
       children: [
             _summary(resume.summary),
             _education(resume.education),
-            _profession(resume.profession)
+            _profession(resume.profession),
+            const SizedBox(height: 40,),
+            _downloadButton()
       ],
     );
   }
@@ -104,7 +106,10 @@ class _ResumeViewState extends ConsumerState<ResumeView> {
       ),
       onPressed: ()async{
         await downloadFile();
-      }, child: const TextTitleSmall(text: LocaleKeys.general_downloadCV, isMultiLang: true, color: Colors.white));
+      }, child: const Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.0),
+        child:  TextTitleSmall(text: LocaleKeys.general_downloadCV, isMultiLang: true, color: Colors.white),
+      ));
   }
 
 Future<void> downloadFile() async {

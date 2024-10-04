@@ -28,7 +28,7 @@ class _ProjectView2State extends ConsumerState<ProjectsView> {
     return Padding(
       padding: ConsPadding.pagePadding(context),
       child: SizedBox(
-        height: context.height,
+        height:   context.width < ConsApplication.DESKTOPWIDTH ? 1900: context.height,
         width: context.width,
         child: _body,
       ),
@@ -43,16 +43,20 @@ class _ProjectView2State extends ConsumerState<ProjectsView> {
 
   Widget _list(List<Program> list)
   {
-    return ListView(
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleTextArea( titleText: LocaleKeys.general_projects, isMultiLang: true,),
-        SizedBox(
-          height: context.height * 0.07,
+              SizedBox(
+                height: context.height * 0.07,
+              ),
+        Expanded(
+          child: ListView(
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            children: List<Widget>.generate(list.length, (index) => _ProjectCard(program: list[index]))
+          ),
         ),
-        Column(
-          children: List<Widget>.generate(list.length, (index) => _ProjectCard(program: list[index])),),
       ],
     );
   }

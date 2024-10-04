@@ -25,7 +25,7 @@ class _ExperienceViewState extends ConsumerState<ExperienceView> {
     return Padding(
       padding: ConsPadding.pagePadding(context),
       child: SizedBox(
-        height: context.height*.6,
+        height: 600,
         width: context.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,9 +45,9 @@ class _ExperienceViewState extends ConsumerState<ExperienceView> {
 
   Widget _page(List<Experience> item)
   {
-    return ListView.builder(
-      itemCount: item.length,
-      itemBuilder: (context, index) => _listItem(item[index]));
+    return Column(
+      children: List.generate(item.length, (index)=>_listItem(item[index])),
+    );
   }
 
   Widget _listItem(Experience item)

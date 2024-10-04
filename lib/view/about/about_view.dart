@@ -39,7 +39,7 @@ class _AboutViewState extends ConsumerState<AboutView> {
     return Padding(
       padding: ConsPadding.pagePadding(context),
       child: SizedBox(
-        height: context.width < ConsApplication.DESKTOPWIDTH ? context.height*2 : context.height*.9,
+        height: context.width < ConsApplication.DESKTOPWIDTH ? 1600 : 800,
         width: context.width ,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

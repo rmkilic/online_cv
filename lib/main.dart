@@ -13,12 +13,7 @@ void main() async{
    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   await EasyLocalization.ensureInitialized();
   runApp(ProductLocalization(child: const ProviderScope(child:  MyApp())));
- /*  EasyLocalization(
-    supportedLocales: LanguageManager.instance.supportedLocales, 
-    path: ConsApplication.LANG_ASSET_PATH, 
-    fallbackLocale: const Locale("tr","TR"), 
-    child: const ProviderScope(child: MyApp())); */
-  //runApp(const ProviderScope(child:  MyApp()));
+
 }
 
 class MyApp extends ConsumerStatefulWidget {

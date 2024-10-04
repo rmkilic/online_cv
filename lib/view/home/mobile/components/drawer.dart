@@ -24,7 +24,7 @@ class _DrawerState extends State<_Drawer> {
         children: [
           _drawerHeader,
           Expanded(
-            child: Column(
+            child: ListView(
               children: _tabs,
             ),
           ),
@@ -37,7 +37,7 @@ class _DrawerState extends State<_Drawer> {
   Widget get _drawerHeader
   {
     return SizedBox(
-            height: 400,
+            height: 300,
             
             child: Column(
               children: [
